@@ -1,0 +1,38 @@
+<div class="list-container" *ngIf="logic.cursos.length > 0; else noCourses">
+  <div *ngFor="let curso of cursos; let i = index" 
+       class="course-card" 
+       (click)="estadoCurso(i)"
+       [class.inactive]="!curso.estado">
+    
+    <div class="card-content">
+      <div class="header-row">
+        <span class="course-name">{{ curso.name }}</span>
+        <span class="status-dot" [class.active]="curso.estado"></span>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-item">
+          <span class="label">Duración</span>
+          <span class="value">{{ curso.duracion }} horas</span>
+        </div>
+        <div class="info-item">
+          <span class="label">Nivel</span>
+          <span class="value">{{ curso.nivel }}</span>
+        </div>
+        <div class="info-item">
+          <span class="label">Estado</span>
+          <span class="value status-text">{{ curso.estado ? 'Activo' : 'Inactivo' }}</span>
+        </div>
+      </div>
+    </div>
+
+    <button (click)="eliminarCurso(i)" class="delete-btn">
+      Eliminar
+    </button>
+  </div>
+</div>
+<ng-template #noCourses>
+  <div class="empty-state">
+    <p>No hay cursos registrados actualmente.</p>
+  </div>
+</ng-template>

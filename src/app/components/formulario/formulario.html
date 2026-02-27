@@ -1,0 +1,22 @@
+<div class="form-container">
+  <input [(ngModel)]="text.name" class="input" type="text" placeholder="Nombre del curso"/>
+  
+  <input [(ngModel)]="text.duracion" class="input" type="number" placeholder="Duración en horas"/>
+
+  <select [(ngModel)]="text.nivel" class="custom-select" id="nivel">
+    <option value="" disabled selected>Selecciona un nivel</option>
+    <option value="Basico">Básico</option>
+    <option value="Intermedio">Intermedio</option>
+    <option value="Avanzado">Avanzado</option>
+  </select>
+
+  <div class="switch-container">
+    <span class="status-label">Estado: {{ text.estado ? 'Activo' : 'Inactivo' }}</span>
+    <label class="switch">
+      <input type="checkbox" [(ngModel)]="text.estado">
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <button (click)="addText()" class="submit-btn" type="submit" [disabled]="!text.name || !text.duracion || !text.nivel">Agregar Curso</button>
+</div>
