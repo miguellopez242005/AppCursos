@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Logic } from '../../services/logic';
-import{ Curso } from '../../services/cursoModel';
+import{ Curso } from '../../model/cursoModel';
 @Component({
   selector: 'app-formulario',
   standalone: false,
